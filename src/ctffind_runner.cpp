@@ -714,9 +714,14 @@ void CtffindRunner::executeCtffind4(long int imic)
 	else
 		fh << "no" << std::endl;
 	// Use a restraint on astigmatism?
-	fh << "yes" << std::endl;
-	// Expected (tolerated) astigmatism
-	fh << amount_astigmatism << std::endl;
+    if (amount_astigmatism > 0)
+    {
+	    fh << "yes" << std::endl;
+	    // Expected (tolerated) astigmatism
+	    fh << amount_astigmatism << std::endl;
+    }
+    else
+        fh << "no" << std::endl;
 	if (do_phaseshift)
 	{
 		fh << "yes" << std::endl;
